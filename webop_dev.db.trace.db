@@ -1,0 +1,133 @@
+2015-12-06 03:19:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(PERSON_ID INTEGER PRIMARY KEY AUTOINCREMENT[*],
+NAME VARCHAR(100),
+DOMAIN VARCHAR(20),
+CAREER_STAGE VARCHAR(20),
+LOCATION_ID INTEGER,
+SSEMAIL VARCHAR(50),
+SAPEMAIL VARCHAR(50),
+PSID	VARCHAR(10)
+); "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE person
+(person_id integer PRIMARY KEY autoincrement,
+name VARCHAR(100),
+domain VARCHAR(20),
+career_stage VARCHAR(20),
+location_id integer,
+ssemail VARCHAR(50),
+sapemail VARCHAR(50),
+psid	VARCHAR(10)
+); [42001-188]
+2015-12-06 03:21:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(PERSON_ID INTEGER PRIMARY KEY AUTOINCREMENT[*],
+NAME VARCHAR(100),
+DOMAIN VARCHAR(20),
+CAREER_STAGE VARCHAR(20),
+LOCATION_ID INTEGER,
+SSEMAIL VARCHAR(50),
+SAPEMAIL VARCHAR(50),
+PSID	VARCHAR(10)
+); "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE person
+(person_id integer PRIMARY KEY autoincrement,
+name VARCHAR(100),
+domain VARCHAR(20),
+career_stage VARCHAR(20),
+location_id integer,
+ssemail VARCHAR(50),
+sapemail VARCHAR(50),
+psid	VARCHAR(10)
+); [42001-188]
+2015-12-06 03:22:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Constraint "FK_PERSON_LOCATION_ID" already exists; SQL statement:
+ALTER TABLE rate_card
+ADD CONSTRAINT fk_person_location_id
+FOREIGN KEY (location_id)
+REFERENCES person_location(person_location_id); [90045-188]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:98)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:143)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__11805.invoke(jdbc.clj:722)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:721)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:636)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:748)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at migratus.database$up_STAR_$fn__12143.invoke(database.clj:61)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at migratus.database$up_STAR_.invoke(database.clj:54)
+	at migratus.database.Migration.up(database.clj:150)
+	at migratus.core$up_STAR_.invoke(core.clj:47)
+	at migratus.core$migrate_up_STAR_.invoke(core.clj:54)
+	at migratus.core$migrate_STAR_.invoke(core.clj:58)
+	at migratus.core$run.invoke(core.clj:25)
+	at migratus.core$migrate.invoke(core.clj:63)
+	at webop.db.migrations$migrate.invoke(migrations.clj:17)
+	at webop.core$_main.doInvoke(core.clj:67)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at user$eval63.invoke(form-init7812967752763249425.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6772)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7165)
+	at clojure.main$load_script.invoke(main.clj:275)
+	at clojure.main$init_opt.invoke(main.clj:280)
+	at clojure.main$initialize.invoke(main.clj:308)
+	at clojure.main$null_opt.invoke(main.clj:343)
+	at clojure.main$main.doInvoke(main.clj:421)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+2015-12-06 03:23:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RATE_CARD" already exists; SQL statement:
+create table rate_card
+(rate_card_id integer primary key AUTO_INCREMENT,
+location_id integer not null,
+career_stage VARCHAR(20) not null,
+rate integer not null,
+currency VARCHAR(10));
+ [42101-188]
+2015-12-06 03:34:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RATE_CARD" already exists; SQL statement:
+create table rate_card
+(rate_card_id integer primary key AUTO_INCREMENT,
+location_id integer not null,
+career_stage VARCHAR(20) not null,
+rate integer not null,
+currency VARCHAR(10));
+ [42101-188]
+2015-12-06 03:41:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RATE_CARD" already exists; SQL statement:
+create table rate_card
+(rate_card_id integer primary key AUTO_INCREMENT,
+location_id integer not null,
+career_stage VARCHAR(20) not null,
+rate integer not null,
+currency VARCHAR(10)
+);
+ [42101-188]
+2015-12-06 03:53:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RATE_CARD" already exists; SQL statement:
+create table rate_card
+(rate_card_id integer primary key AUTO_INCREMENT,
+location_id integer not null,
+career_stage VARCHAR(20) not null,
+rate integer not null,
+currency VARCHAR(10)
+);
+ [42101-188]

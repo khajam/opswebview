@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>Welcome to webop</h1>
+    <p><a class="btn btn-primary btn-lg" href="http://luminusweb.net">Learn more &raquo;</a></p>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <ul class="locations">
+        {% for item in locations %}
+            <li>
+                <p>{{item.person_location_id}}</p>
+                <p>{{item.city_name}}</p>
+                <p>{{item.country_name}}</p>
+            </li>
+            {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+   <div class="span12">
+    <form method="POST" action="/">
+      {% csrf-field %}
+        <p>
+          Location Id:
+          <input class="form-control" 
+                 type="text"
+                 name="person_location_id"
+                 value="{{person_location_id}}">
+        </p>
+        {% if errors.name %}
+        <div class="alert alert-danger">{{errors.person_location_id|join}}</div>
+        {% endif %}
+        <p>
+          City Name:
+          <input class="form-control" 
+                 type="text"
+                 name="city_name"
+                 value="{{city_name}}">
+        </p>
+        {% if errors.name %}
+        <div class="alert alert-danger">{{errors.city_name|join}}</div>
+        {% endif %}
+        <p>
+          Country Name:
+          <input class="form-control" 
+                 type="text"
+                 name="country_name"
+                 value="{{country_name}}">
+        </p>
+        {% if errors.name %}
+        <div class="alert alert-danger">{{errors.country_name|join}}</div>
+        {% endif %}
+
+        <input type="submit" class="btn btn-primary" value="Add Location" />
+    </form>     
+   </div>
+      }
+  </div>
+{% endblock %}
