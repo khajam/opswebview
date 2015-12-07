@@ -22,8 +22,7 @@
     (-> (redirect "/")
         (assoc :flash (assoc params :errors errors)))
     (do
-      (db/add-person-location!
-       (assoc params))
+      (db/add-person-location! params)
       (redirect "/"))))
 
 (defn home-page [{:keys [flash]}]
