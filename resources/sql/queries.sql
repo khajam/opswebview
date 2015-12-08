@@ -1,10 +1,10 @@
---name:add-person-location!
+--name:add-location!
 -- creates a new location for the project
 INSERT INTO person_location
 (person_location_id, city_name, country_name)
 VALUES (:person_location_id, :city_name, :country_name);
 
---neme:add-person!
+--name:add-person!
 -- creates a new person
 INSERT INTO person
 (person_id, name, domain, career_stage, location_id, ssemail, sapemail, psid)
@@ -42,4 +42,3 @@ select * from rate_card;
 select * from person p, person_contracts pc 
 where p.person_id = pc.person_id
 and pc.person_contract_id = :person_contract_id
-
